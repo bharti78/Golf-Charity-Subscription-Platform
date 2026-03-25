@@ -32,6 +32,11 @@ a {
   text-decoration: none;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
 button,
 input,
 select,
@@ -85,6 +90,7 @@ textarea {
   align-items: center;
   gap: 14px;
   justify-content: flex-end;
+  flex: 1 1 420px;
   border: 1px solid var(--line);
   border-radius: 999px;
   padding: 8px 10px;
@@ -172,12 +178,14 @@ textarea {
   border-radius: 36px;
   display: grid;
   align-content: start;
+  min-width: 0;
 }
 
 .hero-side {
   display: grid;
   gap: 18px;
   grid-template-rows: minmax(0, 1fr) auto;
+  min-width: 0;
 }
 
 .hero-note-card {
@@ -260,6 +268,7 @@ textarea {
 .charity-hero-stats {
   padding: 30px;
   border-radius: 32px;
+  min-width: 0;
 }
 
 .charity-toolbar {
@@ -313,6 +322,7 @@ textarea {
 .panel,
 .story-panel {
   height: 100%;
+  min-width: 0;
 }
 
 .metric + .metric {
@@ -404,12 +414,14 @@ textarea {
   display: grid;
   align-content: center;
   gap: 12px;
+  min-width: 0;
 }
 
 .charity-card {
   display: grid;
   gap: 18px;
   height: 100%;
+  min-width: 0;
 }
 
 .charity-card-strong {
@@ -449,6 +461,7 @@ textarea {
   border-top: 1px solid var(--line);
   color: var(--accent-dark);
   font-weight: 600;
+  align-items: flex-start;
 }
 
 .event-list {
@@ -484,6 +497,7 @@ textarea {
 .auth-card,
 .auth-aside {
   align-self: start;
+  min-width: 0;
 }
 
 .compact-form,
@@ -514,9 +528,27 @@ textarea {
 .list-row {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 16px;
   padding-bottom: 10px;
   border-bottom: 1px solid var(--line);
+}
+
+.list-row span,
+.list-row strong,
+.list-row a {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.inline-actions {
+  align-items: center;
+}
+
+.inline-actions .primary-button,
+.inline-actions .secondary-button,
+.inline-actions .ghost-button {
+  flex: 0 1 auto;
 }
 
 .error-text {
@@ -530,6 +562,36 @@ textarea {
 .auth-inline-link {
   color: var(--accent-dark);
   font-weight: 700;
+}
+
+@media (max-width: 1100px) {
+  .topbar {
+    gap: 18px;
+  }
+
+  .nav-status {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-side {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+  }
+
+  .charity-hero,
+  .story-grid,
+  .auth-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 900px) {
@@ -550,15 +612,31 @@ textarea {
     width: min(100% - 24px, 1180px);
   }
 
+  .page-shell,
+  .hero-copy,
+  .hero-card,
+  .hero-note-card,
+  .panel,
+  .charity-card-body,
+  .auth-card,
+  .auth-aside,
+  .charity-hero-copy,
+  .charity-hero-stats {
+    min-width: 0;
+  }
+
   .topbar {
     flex-direction: column;
     align-items: flex-start;
+    padding: 16px;
+    border-radius: 24px;
   }
 
   .topnav {
     width: 100%;
     justify-content: flex-start;
     flex-wrap: wrap;
+    border-radius: 28px;
   }
 
   .nav-divider {
@@ -568,5 +646,193 @@ textarea {
 
   .hero-copy {
     padding: 28px;
+  }
+
+  .spotlight img {
+    max-height: 380px;
+    border-radius: 24px;
+  }
+
+  .charity-card-strong {
+    grid-template-rows: 220px 1fr;
+  }
+
+  .charity-card-strong img {
+    height: 220px;
+  }
+
+  .list-row {
+    flex-wrap: wrap;
+  }
+
+  .list-row > * {
+    width: 100%;
+  }
+
+  .inline-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .inline-actions .primary-button,
+  .inline-actions .secondary-button,
+  .inline-actions .ghost-button {
+    flex: 1 1 180px;
+  }
+}
+
+@media (max-width: 680px) {
+  .page-shell {
+    width: min(100% - 16px, 1180px);
+    margin-bottom: 40px;
+  }
+
+  .topbar {
+    margin-top: 12px;
+    gap: 14px;
+  }
+
+  .brand-note,
+  .nav-status {
+    font-size: 0.84rem;
+  }
+
+  .topnav {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .nav-links {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .nav-links-main .nav-link,
+  .nav-links-account .nav-link,
+  .nav-links-account .cta-link,
+  .nav-links-account .ghost-button {
+    flex: 1 1 calc(50% - 8px);
+    text-align: center;
+    justify-content: center;
+  }
+
+  .nav-link,
+  .cta-link,
+  .primary-button,
+  .secondary-button,
+  .ghost-button {
+    width: 100%;
+  }
+
+  .hero {
+    padding: 22px 0 18px;
+  }
+
+  .hero-copy,
+  .hero-card,
+  .hero-note-card,
+  .panel,
+  .charity-hero-copy,
+  .charity-hero-stats,
+  .auth-card,
+  .auth-aside {
+    padding: 20px;
+    border-radius: 24px;
+  }
+
+  .hero-copy h1,
+  .section-header h1,
+  .auth-card h1,
+  .spotlight h1 {
+    font-size: clamp(2.2rem, 10vw, 3.2rem);
+    line-height: 0.98;
+  }
+
+  .metric strong {
+    font-size: 1.6rem;
+  }
+
+  .mini-panel,
+  .story-step,
+  .impact-item {
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .story-steps,
+  .list,
+  .stack,
+  .panel-grid,
+  .dashboard-grid,
+  .card-grid,
+  .auth-layout,
+  .story-grid {
+    gap: 16px;
+  }
+
+  .charity-card-strong {
+    grid-template-rows: 200px 1fr;
+  }
+
+  .charity-card-strong img {
+    height: 200px;
+  }
+
+  .charity-card-body {
+    padding: 18px;
+  }
+
+  .charity-card-topline,
+  .charity-card-footer,
+  .hero-actions,
+  .event-list {
+    gap: 10px;
+  }
+
+  .spotlight {
+    margin-top: 18px;
+  }
+
+  .spotlight img {
+    max-height: 260px;
+  }
+
+  .input,
+  .textarea {
+    padding: 13px 14px;
+    border-radius: 16px;
+  }
+
+  .list-row {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links-main .nav-link,
+  .nav-links-account .nav-link,
+  .nav-links-account .cta-link,
+  .nav-links-account .ghost-button,
+  .inline-actions .primary-button,
+  .inline-actions .secondary-button,
+  .inline-actions .ghost-button {
+    flex-basis: 100%;
+  }
+
+  .hero-side {
+    grid-template-columns: 1fr;
+  }
+
+  .spotlight {
+    grid-template-columns: 1fr;
+  }
+
+  .charity-toolbar {
+    gap: 10px;
+  }
+
+  .event-pill {
+    width: 100%;
+    text-align: center;
   }
 }
