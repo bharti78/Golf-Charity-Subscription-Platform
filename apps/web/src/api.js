@@ -3,14 +3,19 @@ const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:4000";
 async function request(path, options = {}) {
   const token = window.localStorage.getItem("golf_token");
   const isFormData = options.body instanceof FormData;
-  const response = await fetch(`${API_BASE}${path}`, {
-    headers: {
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
-      ...(isFormData ? {} : { "Content-Type": "application/json" }),
-      ...(options.headers || {})
-    },
-    ...options
-  });
+  let response;
+  try {
+    response = await fetch(`${API_BASE}${path}`, {
+      headers: {
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        ...(isFormData ? {} : { "Content-Type": "application/json" }),
+        ...(options.headers || {})
+      },
+      ...options
+    });
+  } catch (error) {
+    throw new Error(`Could not connect to the API at ${API_BASE}. Check that the backend is running.`);
+  }
 
   const data = await response.json();
   if (!response.ok) {

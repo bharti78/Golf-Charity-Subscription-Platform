@@ -212,9 +212,20 @@ function PublicHome() {
 function CharitiesPage() {
   const [search, setSearch] = useState("");
   const [charities, setCharities] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    api.getCharities(search).then(setCharities).catch(() => {});
+    setLoading(true);
+    setError("");
+    api
+      .getCharities(search)
+      .then(setCharities)
+      .catch((err) => {
+        setCharities([]);
+        setError(err.message);
+      })
+      .finally(() => setLoading(false));
   }, [search]);
 
   return (
@@ -251,7 +262,17 @@ function CharitiesPage() {
       </section>
 
       <section className="card-grid">
-        {charities.length ? (
+        {error ? (
+          <article className="panel">
+            <h2>Charities could not be loaded</h2>
+            <p>{error}</p>
+          </article>
+        ) : loading ? (
+          <article className="panel">
+            <h2>Loading charities...</h2>
+            <p>Please wait while we fetch the directory.</p>
+          </article>
+        ) : charities.length ? (
           charities.map((charity) => (
             <Link className="charity-card charity-card-strong" key={charity.id} to={`/charities/${charity.slug}`}>
               <img src={charity.image} alt={charity.name} />
