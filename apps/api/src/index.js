@@ -38,7 +38,7 @@ const app = express();
 const PORT = Number(process.env.PORT || 4000);
 const DEFAULT_CLIENT_ORIGINS = [
   "http://localhost:5173",
-  "https://golf-charity-subscription-platform-flax.vercel.app"
+  "https://golf-charity-subscription-platform-kohl.vercel.app"
 ];
 const CLIENT_ORIGINS = (process.env.CLIENT_ORIGIN
   ? process.env.CLIENT_ORIGIN.split(",")

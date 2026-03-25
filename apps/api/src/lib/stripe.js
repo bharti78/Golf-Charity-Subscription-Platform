@@ -19,7 +19,7 @@ async function getStripe() {
 }
 
 export function getBaseUrl() {
-  return process.env.APP_URL || "https://golf-charity-subscription-platform-flax.vercel.app";
+  return process.env.APP_URL || "https://golf-charity-subscription-platform-kohl.vercel.app";
 }
 
 export function getStripePriceId(planId) {
