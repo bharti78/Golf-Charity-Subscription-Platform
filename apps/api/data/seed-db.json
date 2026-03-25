@@ -1,0 +1,314 @@
+{
+  "meta": {
+    "rolloverJackpot": 120,
+    "lastPublishedDrawMonth": null
+  },
+  "plans": {
+    "monthly": {
+      "id": "monthly",
+      "name": "Monthly",
+      "price": 20,
+      "billingMonths": 1,
+      "prizePoolPercent": 0.3
+    },
+    "yearly": {
+      "id": "yearly",
+      "name": "Yearly",
+      "price": 200,
+      "billingMonths": 12,
+      "prizePoolPercent": 0.3
+    }
+  },
+  "charities": [
+    {
+      "id": "charity-1",
+      "name": "First Swing Futures",
+      "slug": "first-swing-futures",
+      "description": "Funds junior access programs, adaptive golf coaching, and community-led youth sport pathways.",
+      "image": "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=1200&q=80",
+      "location": "Manchester",
+      "upcomingEvent": "April 27 Charity Pro-Am",
+      "upcomingEvents": [
+        "April 27 Charity Pro-Am",
+        "May 18 Junior Access Day",
+        "June 22 Community Coaching Camp"
+      ],
+      "featured": true
+    },
+    {
+      "id": "charity-2",
+      "name": "Fairway Hope Trust",
+      "slug": "fairway-hope-trust",
+      "description": "Supports cancer recovery retreats and golf days built around rehabilitation, fundraising, and family support.",
+      "image": "https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=1200&q=80",
+      "location": "Leeds",
+      "upcomingEvent": "May 11 Hospital Fundraiser",
+      "upcomingEvents": [
+        "May 11 Hospital Fundraiser",
+        "June 2 Recovery Retreat Open",
+        "July 14 Family Support Golf Day"
+      ],
+      "featured": false
+    },
+    {
+      "id": "charity-3",
+      "name": "Birdies For Better Days",
+      "slug": "birdies-for-better-days",
+      "description": "Provides food security grants and mental health outreach through local golf community events.",
+      "image": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=80",
+      "location": "Birmingham",
+      "upcomingEvent": "June 6 Summer Golf Day",
+      "upcomingEvents": [
+        "June 6 Summer Golf Day",
+        "June 29 Birdies Breakfast Fundraiser",
+        "August 3 Mental Health Awareness Round"
+      ],
+      "featured": false
+    },
+    {
+      "id": "charity-4",
+      "name": "Greens For Growth",
+      "slug": "greens-for-growth",
+      "description": "Delivers sport access grants, mentoring, and confidence-building programmes for underserved teenagers.",
+      "image": "https://images.unsplash.com/photo-1518604666860-9ed391f76460?auto=format&fit=crop&w=1200&q=80",
+      "location": "Liverpool",
+      "upcomingEvent": "April 30 Youth Golf Clinic",
+      "upcomingEvents": [
+        "April 30 Youth Golf Clinic",
+        "May 21 Career Mentoring Drive",
+        "June 15 Summer Skills Camp"
+      ],
+      "featured": false
+    },
+    {
+      "id": "charity-5",
+      "name": "Hope On The Tee",
+      "slug": "hope-on-the-tee",
+      "description": "Funds bereavement support and wellbeing retreats for families rebuilding after sudden loss.",
+      "image": "https://images.unsplash.com/photo-1507608443039-bfde4fbcd142?auto=format&fit=crop&w=1200&q=80",
+      "location": "Bristol",
+      "upcomingEvent": "May 9 Reflection Golf Day",
+      "upcomingEvents": [
+        "May 9 Reflection Golf Day",
+        "June 19 Family Recovery Workshop",
+        "July 9 Community Healing Round"
+      ],
+      "featured": false
+    },
+    {
+      "id": "charity-6",
+      "name": "Clubhouse Care Network",
+      "slug": "clubhouse-care-network",
+      "description": "Creates practical support funds for carers, respite access, and emergency household assistance.",
+      "image": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80",
+      "location": "Sheffield",
+      "upcomingEvent": "May 28 Caregiver Support Day",
+      "upcomingEvents": [
+        "May 28 Caregiver Support Day",
+        "June 17 Clubhouse Relief Fundraiser",
+        "July 25 Summer Family Meet"
+      ],
+      "featured": false
+    },
+    {
+      "id": "charity-7",
+      "name": "Open Fairways Trust",
+      "slug": "open-fairways-trust",
+      "description": "Builds inclusive golf access through adaptive coaching, transport support, and equipment sponsorship.",
+      "image": "https://images.unsplash.com/photo-1592919505780-303950717480?auto=format&fit=crop&w=1200&q=80",
+      "location": "Nottingham",
+      "upcomingEvent": "June 4 Inclusive Sport Open",
+      "upcomingEvents": [
+        "June 4 Inclusive Sport Open",
+        "June 26 Adaptive Coaching Day",
+        "August 1 Mobility Support Fundraiser"
+      ],
+      "featured": false
+    },
+    {
+      "id": "charity-8",
+      "name": "Par For Progress",
+      "slug": "par-for-progress",
+      "description": "Supports local education bursaries, digital access, and after-school development initiatives.",
+      "image": "https://images.unsplash.com/photo-1486286701208-1d58e9338013?auto=format&fit=crop&w=1200&q=80",
+      "location": "Leicester",
+      "upcomingEvent": "May 13 School Access Cup",
+      "upcomingEvents": [
+        "May 13 School Access Cup",
+        "June 10 Device Donation Drive",
+        "July 6 Student Mentorship Round"
+      ],
+      "featured": false
+    },
+    {
+      "id": "charity-9",
+      "name": "Fairway Food Relief",
+      "slug": "fairway-food-relief",
+      "description": "Runs food-bank partnerships and emergency pantry support through golf-led fundraising campaigns.",
+      "image": "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=80",
+      "location": "Newcastle",
+      "upcomingEvent": "May 22 Hunger Relief Classic",
+      "upcomingEvents": [
+        "May 22 Hunger Relief Classic",
+        "June 8 Community Pantry Day",
+        "July 20 Summer Meal Appeal"
+      ],
+      "featured": false
+    },
+    {
+      "id": "charity-10",
+      "name": "Tee Up Tomorrow",
+      "slug": "tee-up-tomorrow",
+      "description": "Invests in young adults transitioning out of care with skills coaching, grants, and community pathways.",
+      "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=80",
+      "location": "Oxford",
+      "upcomingEvent": "June 12 Future Leaders Round",
+      "upcomingEvents": [
+        "June 12 Future Leaders Round",
+        "July 4 Transition Support Workshop",
+        "August 14 Career Launch Clinic"
+      ],
+      "featured": false
+    },
+    {
+      "id": "charity-11",
+      "name": "Bridge The Bunker",
+      "slug": "bridge-the-bunker",
+      "description": "Provides crisis counseling access and peer support networks for people facing acute mental health strain.",
+      "image": "https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?auto=format&fit=crop&w=1200&q=80",
+      "location": "Glasgow",
+      "upcomingEvent": "May 24 Awareness Match Day",
+      "upcomingEvents": [
+        "May 24 Awareness Match Day",
+        "June 18 Peer Support Forum",
+        "July 30 Hope Through Sport Night"
+      ],
+      "featured": false
+    },
+    {
+      "id": "charity-12",
+      "name": "Birdie Bridge Foundation",
+      "slug": "birdie-bridge-foundation",
+      "description": "Combines golf events with local volunteering and direct neighborhood renewal projects.",
+      "image": "https://images.unsplash.com/photo-1499092346589-b9b6be3e94b2?auto=format&fit=crop&w=1200&q=80",
+      "location": "Cardiff",
+      "upcomingEvent": "June 1 Neighborhood Renewal Cup",
+      "upcomingEvents": [
+        "June 1 Neighborhood Renewal Cup",
+        "June 25 Volunteer Action Day",
+        "August 9 City Improvement Fundraiser"
+      ],
+      "featured": false
+    }
+  ],
+  "users": [
+    {
+      "id": "admin-1",
+      "name": "Platform Admin",
+      "email": "admin@golfcharity.local",
+      "passwordHash": "scrypt:439311fe6203e2ad3ddf8b6628faf711:b12d9d68d692e4529b50119ceb99b17b81cb5b8247a509264564e30a07641379250209d0e9b70950afa2a1a7f8ff2497a2a95e648c3b37d711874b3295bd4a66",
+      "role": "admin",
+      "stripeCustomerId": null,
+      "stripeSubscriptionId": null,
+      "charityId": "charity-1",
+      "charityPercentage": 10,
+      "subscription": {
+        "planId": "yearly",
+        "status": "active",
+        "renewalDate": "2027-03-01",
+        "startedAt": "2026-03-01",
+        "cancelledAt": null
+      },
+      "scores": [
+        {
+          "id": "score-a1",
+          "value": 36,
+          "playedAt": "2026-03-22"
+        },
+        {
+          "id": "score-a2",
+          "value": 34,
+          "playedAt": "2026-03-15"
+        },
+        {
+          "id": "score-a3",
+          "value": 31,
+          "playedAt": "2026-03-08"
+        },
+        {
+          "id": "score-a4",
+          "value": 37,
+          "playedAt": "2026-03-01"
+        },
+        {
+          "id": "score-a5",
+          "value": 29,
+          "playedAt": "2026-02-22"
+        }
+      ],
+      "stats": {
+        "totalWon": 0
+      },
+      "donations": []
+    },
+    {
+      "id": "user-1",
+      "name": "Alex Carter",
+      "email": "alex@golfcharity.local",
+      "passwordHash": "scrypt:29506d2174792b76271ea75012cc1e30:bc235c3df870f26f4300ad4629a8a6b14a6afe01a9195c9e9ac2e02ea0544ae13eb1c31e33335e2fe39f6c7e8cd15b2d692664e4bdb5771fe6169a275e3d2225",
+      "role": "subscriber",
+      "stripeCustomerId": null,
+      "stripeSubscriptionId": null,
+      "charityId": "charity-2",
+      "charityPercentage": 15,
+      "subscription": {
+        "planId": "monthly",
+        "status": "active",
+        "renewalDate": "2026-04-10",
+        "startedAt": "2026-03-10",
+        "cancelledAt": null
+      },
+      "scores": [
+        {
+          "id": "score-u1",
+          "value": 32,
+          "playedAt": "2026-03-20"
+        },
+        {
+          "id": "score-u2",
+          "value": 28,
+          "playedAt": "2026-03-14"
+        },
+        {
+          "id": "score-u3",
+          "value": 34,
+          "playedAt": "2026-03-10"
+        },
+        {
+          "id": "score-u4",
+          "value": 35,
+          "playedAt": "2026-03-03"
+        },
+        {
+          "id": "score-u5",
+          "value": 29,
+          "playedAt": "2026-02-25"
+        }
+      ],
+      "stats": {
+        "totalWon": 0
+      },
+      "donations": [
+        {
+          "id": "donation-1",
+          "amount": 25,
+          "charityId": "charity-2",
+          "createdAt": "2026-03-18T10:30:00.000Z"
+        }
+      ]
+    }
+  ],
+  "draws": [],
+  "winnerClaims": [],
+  "notifications": []
+}
