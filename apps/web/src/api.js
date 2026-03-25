@@ -3,21 +3,44 @@ const API_BASE =
   import.meta.env.VITE_API_URL ||
   (window.location.hostname === "localhost" ? "http://localhost:4000" : PROD_API_URL);
 
+function wait(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 async function request(path, options = {}) {
   const token = window.localStorage.getItem("golf_token");
   const isFormData = options.body instanceof FormData;
+  const fetchOptions = {
+    headers: {
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      ...(isFormData ? {} : { "Content-Type": "application/json" }),
+      ...(options.headers || {})
+    },
+    ...options
+  };
+
   let response;
-  try {
-    response = await fetch(`${API_BASE}${path}`, {
-      headers: {
-        ...(token ? { Authorization: `Bearer ${token}` } : {}),
-        ...(isFormData ? {} : { "Content-Type": "application/json" }),
-        ...(options.headers || {})
-      },
-      ...options
-    });
-  } catch (error) {
-    throw new Error(`Could not connect to the API at ${API_BASE}. Check that the backend is running.`);
+  let lastError;
+  const attempts = window.location.hostname === "localhost" ? 1 : 3;
+
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      response = await fetch(`${API_BASE}${path}`, fetchOptions);
+      lastError = null;
+      break;
+    } catch (error) {
+      lastError = error;
+      if (attempt < attempts) {
+        await wait(attempt * 1500);
+      }
+    }
+  }
+
+  if (!response) {
+    const backendHint = window.location.hostname === "localhost"
+      ? "Check that the backend is running."
+      : "The backend may still be waking up on Render. Please wait a few seconds and try again.";
+    throw new Error(`Could not connect to the API at ${API_BASE}. ${backendHint}`);
   }
 
   const data = await response.json();
