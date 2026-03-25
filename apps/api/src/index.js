@@ -36,7 +36,14 @@ if (typeof process.loadEnvFile === "function" && existsSync(envPath)) {
 
 const app = express();
 const PORT = Number(process.env.PORT || 4000);
-const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || "http://localhost:5173";
+const DEFAULT_CLIENT_ORIGINS = [
+  "http://localhost:5173",
+  "https://golf-charity-subscription-platform-flax.vercel.app"
+];
+const CLIENT_ORIGINS = (process.env.CLIENT_ORIGIN
+  ? process.env.CLIENT_ORIGIN.split(",")
+  : DEFAULT_CLIENT_ORIGINS
+).map((entry) => entry.trim()).filter(Boolean);
 const uploadDir = path.resolve(__dirname, "../uploads");
 
 await fs.mkdir(uploadDir, { recursive: true });
@@ -61,7 +68,15 @@ const upload = multer({
   }
 });
 
-app.use(cors({ origin: CLIENT_ORIGIN, credentials: true }));
+app.use(cors({
+  origin(origin, callback) {
+    if (!origin || CLIENT_ORIGINS.includes(origin)) {
+      return callback(null, true);
+    }
+    return callback(new Error(`CORS blocked for origin ${origin}`));
+  },
+  credentials: true
+}));
 app.use("/uploads", express.static(uploadDir));
 app.post("/api/stripe/webhook", express.raw({ type: "application/json" }), async (req, res) => {
   try {

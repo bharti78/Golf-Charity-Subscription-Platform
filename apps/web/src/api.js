@@ -1,4 +1,7 @@
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:4000";
+const PROD_API_URL = "https://golf-charity-subscription-platform-zrcp.onrender.com";
+const API_BASE =
+  import.meta.env.VITE_API_URL ||
+  (window.location.hostname === "localhost" ? "http://localhost:4000" : PROD_API_URL);
 
 async function request(path, options = {}) {
   const token = window.localStorage.getItem("golf_token");
