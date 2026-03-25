@@ -5,6 +5,7 @@ import { randomUUID } from "crypto";
 import path from "path";
 import { fileURLToPath } from "url";
 import { promises as fs } from "fs";
+import { existsSync } from "fs";
 import { comparePassword, hashPassword, signToken, verifyToken } from "./lib/auth.js";
 import {
   addMonths,
@@ -29,7 +30,7 @@ import {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const envPath = path.resolve(__dirname, "../../../.env");
-if (typeof process.loadEnvFile === "function") {
+if (typeof process.loadEnvFile === "function" && existsSync(envPath)) {
   process.loadEnvFile(envPath);
 }
 
