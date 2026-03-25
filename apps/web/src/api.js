@@ -10,10 +10,11 @@ function wait(ms) {
 async function request(path, options = {}) {
   const token = window.localStorage.getItem("golf_token");
   const isFormData = options.body instanceof FormData;
+  const method = (options.method || "GET").toUpperCase();
   const fetchOptions = {
     headers: {
       ...(token ? { Authorization: `Bearer ${token}` } : {}),
-      ...(isFormData ? {} : { "Content-Type": "application/json" }),
+      ...(!isFormData && method !== "GET" ? { "Content-Type": "application/json" } : {}),
       ...(options.headers || {})
     },
     ...options
